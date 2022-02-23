@@ -313,10 +313,14 @@ def installPackage(dependencies):
             print(f"{Fore.BLUE}{lib}{Fore.RED} not found! Installing it for you. . .{Fore.RESET}")
             try:
                 subprocess.check_call(['python', '-m', 'pip', 'install', lib])
+            except (subprocess.CalledProcessError, FileNotFoundError):
+                print(f"{Fore.RESET}[{Fore.RED}Error{Fore.RESET}] : You probably don't have python installed or python added to path, please read the readme and then continue with this")
+                sleep(3)
+                input()
             #incase something goes wrong we notify the user that something happend
             except Exception as e:
                 print(f"{Fore.RESET}[{Fore.RED}Error{Fore.RESET}] : {e}")
-                sleep(0.5)
+                sleep(3)
                 pass
 
 def hasNitroBoost(token):
