@@ -80,7 +80,7 @@ def search_for_updates():
                 setTitle('Hazard Nuker Update Complete!')
                 print(f"{Fore.GREEN}Update Successfully Finished!")
                 sleep(2)
-                os.startfile("start.bat")
+                os.startfile("setup.bat")
                 sys.exit()
 
         else:
